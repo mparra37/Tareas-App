@@ -7,7 +7,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -22,24 +24,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        lifecycleScope.launch {
-            val db = AppDatabase.getInstance(this@MainActivity)
-            db.taskDao().insert(TaskEntity(title = "Prueba"))
-            val tareas = db.taskDao()
-                .getAllTasks().first()
-            var mensaje: String = tareas.size.toString() + "/" + tareas[0].toString()
-            Log.d("ROOM-TEST", mensaje)
-
-        }
+//        lifecycleScope.launch {
+//            val db = AppDatabase.getInstance(this@MainActivity)
+//            db.taskDao().insert(TaskEntity(title = "Prueba"))
+//            val tareas = db.taskDao()
+//                .getAllTasks().first()
+//            var mensaje: String = tareas.size.toString() + "/" + tareas[0].toString()
+//            Log.d("ROOM-TEST", mensaje)
+//
+//        }
         setContent {
-            TareasTestTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+            MaterialTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    TasksScreen()
                 }
             }
+
         }
     }
 }
