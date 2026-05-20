@@ -2,7 +2,7 @@ package parra.mario.tareastest
 
 
 import android.graphics.pdf.models.ListItem
-import androidx.compose.material.icons.Icons
+
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import java.text.SimpleDateFormat
 import java.util.Date
-
+import androidx.compose.material.icons.Icons
 
 @Composable
 fun TaskItem(
